@@ -1,0 +1,104 @@
+package com.atguigu.dome;
+
+import com.baomidou.mybatisplus.annotation.DbType;
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.generator.AutoGenerator;
+import com.baomidou.mybatisplus.generator.config.DataSourceConfig;
+import com.baomidou.mybatisplus.generator.config.GlobalConfig;
+import com.baomidou.mybatisplus.generator.config.PackageConfig;
+import com.baomidou.mybatisplus.generator.config.StrategyConfig;
+import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
+
+
+/**
+ * @author <a href="zyc199777@gmail.com">Zhu yc</a>
+ * @version 1.0
+ * @date 2020年05月13日
+ * @desc CodeGenerator mybatis-plus 代码生成器
+ */
+public class CodeGenerator {
+
+    public static void main(String[] args) {
+        String author = "zhuyc";
+        String dbUrl = "192.168.0.199:3306/guli";
+        String dbName = "root";
+        String dbPass = "root";
+        String path = System.getProperty("user.dir")+"\\service\\service-edu\\src\\main\\java";
+        String parentName = "com.atguigu";
+        String moduleName = "serviceedu";
+        String tablePrefix = "edu";
+        String[] tables = {"edu_teacher"};
+        execute(author,dbUrl,dbName,dbPass,path,parentName,moduleName,tablePrefix,tables);
+    }
+
+    public static void execute(
+            String author,
+            String dbUrl,
+            String dbName,
+            String dbPass,
+            String path,
+            String parentName,
+            String moduleName,
+            String tablePrefix,
+            String[] tables
+    ) {
+        // 代码生成器
+        AutoGenerator generator = new AutoGenerator();
+
+        // 全局配置
+        GlobalConfig config = new GlobalConfig();
+
+        config.setOutputDir(path)
+                .setFileOverride(false)
+                .setOpen(false)
+                .setEnableCache(false)
+                .setAuthor(author)
+                .setSwagger2(true)
+                .setBaseResultMap(true)
+                .setBaseColumnList(true)
+                .setIdType(IdType.ASSIGN_ID)
+                .setEntityName("%sEntity")
+                .setMapperName("%sMapper")
+                .setXmlName("%sMapper")
+                .setServiceName("%sService")
+                .setServiceImplName("%sServiceImpl")
+                .setControllerName("%sController");
+
+        // 数据源配置
+        DataSourceConfig dataSource = new DataSourceConfig();
+        dataSource.setDbType(DbType.MYSQL)
+                .setUrl("jdbc:mysql://" + dbUrl + "?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false&serverTimezone=Asia/Shanghai")
+                .setDriverName("com.mysql.cj.jdbc.Driver")
+                .setUsername(dbName)
+                .setPassword(dbPass);
+
+        PackageConfig pc = new PackageConfig();
+        pc.setParent(parentName)
+                .setModuleName(moduleName)
+                .setEntity("entity")
+                .setService("service")
+                .setServiceImpl("service.impl")
+                .setMapper("mapper")
+                .setXml("xml")
+                .setController("controller");
+
+        // 策略配置
+        StrategyConfig strategy = new StrategyConfig();
+        strategy.setNaming(NamingStrategy.underline_to_camel)
+                .setColumnNaming(NamingStrategy.underline_to_camel)
+                .setTablePrefix(tablePrefix+"_")
+                .setEntityBuilderModel(true)
+                .setEntityLombokModel(true)
+                .setEntityBooleanColumnRemoveIsPrefix(true)
+                .setRestControllerStyle(true)
+                .setEntityTableFieldAnnotationEnable(true)
+                .setInclude(tables);
+
+        generator.setGlobalConfig(config)
+                .setDataSource(dataSource)
+                .setStrategy(strategy)
+                .setPackageInfo(pc);
+
+        generator.execute();
+    }
+}
