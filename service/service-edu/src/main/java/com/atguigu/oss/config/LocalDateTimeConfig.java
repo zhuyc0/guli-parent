@@ -1,4 +1,4 @@
-package com.atguigu.serviceedu.config;
+package com.atguigu.oss.config;
 
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;

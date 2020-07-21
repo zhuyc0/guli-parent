@@ -1,4 +1,4 @@
-package com.atguigu.servicebase.exce;
+package com.atguigu.base.exce;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;

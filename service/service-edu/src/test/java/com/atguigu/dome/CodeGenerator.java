@@ -25,7 +25,7 @@ public class CodeGenerator {
         String dbPass = "root";
         String path = System.getProperty("user.dir")+"\\service\\service-edu\\src\\main\\java";
         String parentName = "com.atguigu";
-        String moduleName = "serviceedu";
+        String moduleName = "edu";
         String tablePrefix = "edu";
         String[] tables = {"edu_teacher"};
         execute(author,dbUrl,dbName,dbPass,path,parentName,moduleName,tablePrefix,tables);

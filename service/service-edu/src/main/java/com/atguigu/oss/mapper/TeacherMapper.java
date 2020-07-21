@@ -1,6 +1,6 @@
-package com.atguigu.serviceedu.mapper;
+package com.atguigu.oss.mapper;
 
-import com.atguigu.serviceedu.entity.TeacherEntity;
+import com.atguigu.oss.entity.TeacherEntity;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**

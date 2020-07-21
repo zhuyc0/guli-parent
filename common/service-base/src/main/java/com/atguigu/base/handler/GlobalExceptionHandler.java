@@ -1,7 +1,7 @@
-package com.atguigu.servicebase.handler;
+package com.atguigu.base.handler;
 
 import com.atguigu.commonutils.R;
-import com.atguigu.servicebase.exce.GuliException;
+import com.atguigu.base.exce.GuliException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 

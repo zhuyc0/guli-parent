@@ -1,4 +1,4 @@
-package com.atguigu.serviceedu.entity;
+package com.atguigu.oss.entity;
 
 import com.baomidou.mybatisplus.annotation.*;
 import io.swagger.annotations.ApiModel;

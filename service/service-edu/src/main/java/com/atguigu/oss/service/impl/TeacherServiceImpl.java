@@ -1,9 +1,9 @@
-package com.atguigu.serviceedu.service.impl;
+package com.atguigu.oss.service.impl;
 
-import com.atguigu.serviceedu.entity.TeacherEntity;
-import com.atguigu.serviceedu.entity.vo.TeacherQuery;
-import com.atguigu.serviceedu.mapper.TeacherMapper;
-import com.atguigu.serviceedu.service.TeacherService;
+import com.atguigu.oss.entity.TeacherEntity;
+import com.atguigu.oss.entity.vo.TeacherQuery;
+import com.atguigu.oss.mapper.TeacherMapper;
+import com.atguigu.oss.service.TeacherService;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -53,6 +53,7 @@ public class TeacherServiceImpl extends ServiceImpl<TeacherMapper, TeacherEntity
         if (end != null) {
             queryWrapper.le(TeacherEntity::getGmtCreate, end);
         }
+        queryWrapper.orderByDesc(TeacherEntity::getGmtCreate);
         this.page(pageParam, queryWrapper);
     }
 }

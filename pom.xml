@@ -9,6 +9,7 @@
     <modules>
         <module>service</module>
         <module>common</module>
+        <module>service-oss</module>
     </modules>
     <name>guli-parent</name>
     <description>在线教育-谷粒商城</description>
@@ -166,7 +167,7 @@
                 <artifactId>aliyun-java-sdk-core</artifactId>
                 <version>${aliyun-java-sdk-core.version}</version>
             </dependency>
-            <!-- aliyun oss -->
+            <!-- aliyun edu -->
             <dependency>
                 <groupId>com.aliyun.oss</groupId>
                 <artifactId>aliyun-sdk-oss</artifactId>

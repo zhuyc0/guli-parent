@@ -1,4 +1,4 @@
-package com.atguigu.serviceedu.config;
+package com.atguigu.oss.config;
 
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
@@ -15,7 +15,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  */
 @Configuration
 @EnableTransactionManagement
-@MapperScan(basePackages = "com.atguigu.serviceedu.mapper")
+@MapperScan(basePackages = "com.atguigu.edu.mapper")
 public class MybatisPlusConfig {
 
     @Bean
