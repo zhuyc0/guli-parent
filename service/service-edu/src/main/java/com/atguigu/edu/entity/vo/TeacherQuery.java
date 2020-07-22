@@ -1,4 +1,4 @@
-package com.atguigu.oss.entity.vo;
+package com.atguigu.edu.entity.vo;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;

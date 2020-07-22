@@ -1,4 +1,4 @@
-package com.atguigu.oss;
+package com.atguigu.edu;
 
 
 import org.springframework.boot.SpringApplication;
@@ -12,7 +12,7 @@ import org.springframework.context.annotation.ComponentScan;
  * @desc EduApplication
  */
 @SpringBootApplication
-@ComponentScan(basePackages = {"com.atguigu.oss", "com.atguigu.base"})
+@ComponentScan(basePackages = {"com.atguigu.edu", "com.atguigu.base"})
 public class EduApplication {
     public static void main(String[] args) {
         SpringApplication.run(EduApplication.class, args);

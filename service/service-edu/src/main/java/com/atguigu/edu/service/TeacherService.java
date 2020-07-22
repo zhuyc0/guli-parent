@@ -1,7 +1,7 @@
-package com.atguigu.oss.service;
+package com.atguigu.edu.service;
 
-import com.atguigu.oss.entity.TeacherEntity;
-import com.atguigu.oss.entity.vo.TeacherQuery;
+import com.atguigu.edu.entity.TeacherEntity;
+import com.atguigu.edu.entity.vo.TeacherQuery;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
 

@@ -1,4 +1,4 @@
-package com.atguigu.oss.config;
+package com.atguigu.edu.config;
 
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;

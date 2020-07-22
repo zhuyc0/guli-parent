@@ -1,10 +1,10 @@
-package com.atguigu.oss.controller;
+package com.atguigu.edu.controller;
 
 
 import com.atguigu.commonutils.R;
-import com.atguigu.oss.entity.TeacherEntity;
-import com.atguigu.oss.entity.vo.TeacherQuery;
-import com.atguigu.oss.service.TeacherService;
+import com.atguigu.edu.entity.TeacherEntity;
+import com.atguigu.edu.entity.vo.TeacherQuery;
+import com.atguigu.edu.service.TeacherService;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import io.swagger.annotations.*;
 import org.springframework.beans.factory.annotation.Autowired;

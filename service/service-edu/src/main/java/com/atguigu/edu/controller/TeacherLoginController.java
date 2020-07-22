@@ -1,4 +1,4 @@
-package com.atguigu.oss.controller;
+package com.atguigu.edu.controller;
 
 import com.atguigu.commonutils.R;
 import org.springframework.web.bind.annotation.*;

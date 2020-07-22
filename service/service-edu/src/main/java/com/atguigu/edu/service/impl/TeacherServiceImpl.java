@@ -1,9 +1,9 @@
-package com.atguigu.oss.service.impl;
+package com.atguigu.edu.service.impl;
 
-import com.atguigu.oss.entity.TeacherEntity;
-import com.atguigu.oss.entity.vo.TeacherQuery;
-import com.atguigu.oss.mapper.TeacherMapper;
-import com.atguigu.oss.service.TeacherService;
+import com.atguigu.edu.entity.TeacherEntity;
+import com.atguigu.edu.entity.vo.TeacherQuery;
+import com.atguigu.edu.mapper.TeacherMapper;
+import com.atguigu.edu.service.TeacherService;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
