@@ -20,14 +20,14 @@ public class CodeGenerator {
 
     public static void main(String[] args) {
         String author = "zhuyc";
-        String dbUrl = "192.168.0.199:3306/guli";
+        String dbUrl = "www.java-mysql-dev.com:3306/guli";
         String dbName = "root";
-        String dbPass = "root";
+        String dbPass = "Zycmysql1024";
         String path = System.getProperty("user.dir")+"\\service\\service-edu\\src\\main\\java";
         String parentName = "com.atguigu";
         String moduleName = "edu";
         String tablePrefix = "edu";
-        String[] tables = {"edu_teacher"};
+        String[] tables = {"edu_subject"};
         execute(author,dbUrl,dbName,dbPass,path,parentName,moduleName,tablePrefix,tables);
     }
 
