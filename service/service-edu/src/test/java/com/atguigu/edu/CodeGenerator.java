@@ -22,7 +22,7 @@ public class CodeGenerator {
         String author = "zhuyc";
         String dbUrl = "www.java-mysql-dev.com:3306/guli";
         String dbName = "root";
-        String dbPass = "Zycmysql1024";
+        String dbPass = "123456";
         String path = System.getProperty("user.dir")+"\\service\\service-edu\\src\\main\\java";
         String parentName = "com.atguigu";
         String moduleName = "edu";
