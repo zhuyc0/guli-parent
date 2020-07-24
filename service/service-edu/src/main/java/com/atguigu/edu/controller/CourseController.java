@@ -2,7 +2,9 @@ package com.atguigu.edu.controller;
 
 
 import com.atguigu.commonutils.R;
+import com.atguigu.edu.entity.CourseEntity;
 import com.atguigu.edu.entity.vo.CourseInfoForm;
+import com.atguigu.edu.entity.vo.CoursePublishVo;
 import com.atguigu.edu.entity.vo.CourseQuery;
 import com.atguigu.edu.service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,10 +50,32 @@ public class CourseController {
         return courseService.getCourseInfo(courseId);
     }
 
-    //修改课程信息
+
     @PostMapping("/updateCourseInfo")
     public R updateCourseInfo(@RequestBody CourseInfoForm courseInfo) {
+        //修改课程信息
         return courseService.updateCourseInfo(courseInfo);
+    }
+
+
+    @GetMapping("getPublishCourseInfo/{id}")
+    public R getPublishCourseInfo(@PathVariable String id) {
+        //根据课程id查询课程确认信息
+        CoursePublishVo coursePublishVo = courseService.publishCourseInfo(id);
+        return R.ok().data("publishCourse",coursePublishVo);
+    }
+
+
+    @PostMapping("publishCourse/{id}")
+    public R publishCourse(@PathVariable String id) {
+        //课程最终发布
+        //修改课程状态
+        CourseEntity eduCourse = new CourseEntity();
+        eduCourse.setId(id);
+        //设置课程发布状态
+        eduCourse.setStatus("Normal");
+        courseService.updateById(eduCourse);
+        return R.ok();
     }
 }
 

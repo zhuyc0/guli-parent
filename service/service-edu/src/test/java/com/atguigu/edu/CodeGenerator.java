@@ -1,4 +1,4 @@
-package com.atguigu.dome;
+package com.atguigu.edu;
 
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.annotation.IdType;
@@ -27,7 +27,7 @@ public class CodeGenerator {
         String parentName = "com.atguigu";
         String moduleName = "edu";
         String tablePrefix = "edu";
-        String[] tables = {"edu_subject"};
+        String[] tables = {"edu_chapter","edu_course","edu_course_description","edu_video"};
         execute(author,dbUrl,dbName,dbPass,path,parentName,moduleName,tablePrefix,tables);
     }
 

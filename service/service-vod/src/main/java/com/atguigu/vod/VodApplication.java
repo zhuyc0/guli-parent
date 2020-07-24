@@ -1,5 +1,4 @@
-package com.atguigu.oss;
-
+package com.atguigu.vod;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -8,16 +7,15 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.annotation.ComponentScan;
 
 /**
- * @author <a href="zyc199777@gmail.com">Zhu yc</a>
+ * @author <a href="mailto:zyc199777@gmail.com">Zhu yc</a>
  * @version 1.0
- * @date 2020年05月21日
- * @desc EduApplication
+ * @date 2020年07月24日
  */
 @EnableDiscoveryClient
 @SpringBootApplication(exclude = DataSourceAutoConfiguration.class)
-@ComponentScan(basePackages = {"com.atguigu.oss","com.atguigu.base"})
-public class OssApplication {
+@ComponentScan(basePackages = {"com.atguigu.vod","com.atguigu.base"})
+public class VodApplication {
     public static void main(String[] args) {
-        SpringApplication.run(OssApplication.class, args);
+        SpringApplication.run(VodApplication.class, args);
     }
 }

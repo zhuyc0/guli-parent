@@ -4,6 +4,7 @@ import com.atguigu.commonutils.R;
 import com.atguigu.edu.entity.CourseDescriptionEntity;
 import com.atguigu.edu.entity.CourseEntity;
 import com.atguigu.edu.entity.vo.CourseInfoForm;
+import com.atguigu.edu.entity.vo.CoursePublishVo;
 import com.atguigu.edu.entity.vo.CourseQuery;
 import com.atguigu.edu.mapper.CourseMapper;
 import com.atguigu.edu.service.CourseDescriptionService;
@@ -82,5 +83,10 @@ public class CourseServiceImpl extends ServiceImpl<CourseMapper, CourseEntity> i
         description.setDescription(courseInfo.getDescription());
         courseDescriptionService.updateById(description);
         return R.ok();
+    }
+
+    @Override
+    public CoursePublishVo publishCourseInfo(String id) {
+        return baseMapper.publishCourseInfo(id);
     }
 }

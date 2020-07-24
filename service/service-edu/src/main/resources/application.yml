@@ -15,7 +15,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://www.java-mysql-dev.com:3306/guli?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false&serverTimezone=Asia/Shanghai&rewriteBatchedStatements=true
     username: root
-    password: 123456
+    password: 1
     hikari:
       connection-test-query: SELECT 1
       connection-timeout: 60000
@@ -27,6 +27,11 @@ spring:
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+8
+  cloud:
+    nacos:
+      discovery:
+        server-addr: www.nacos-dev.com
+        namespace: a4429396-1a75-4dc6-8c8c-874e08ec2fee
 server:
   port: 8001
 mybatis-plus:
