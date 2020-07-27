@@ -22,7 +22,6 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(GuliException.class)
     public R error(GuliException e){
-        e.printStackTrace();
         return R.error().message(e.getMsg()).code(e.getCode());
     }
 }

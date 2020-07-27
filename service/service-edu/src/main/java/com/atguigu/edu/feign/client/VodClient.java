@@ -15,7 +15,7 @@ import java.util.List;
  * @version 1.0
  * @date 2020年07月24日
  */
-@FeignClient(name = "service-vod",fallback = VodClientFallback.class) //调用的服务名称
+@FeignClient(name = "service-vod", fallback = VodClientFallback.class, decode404 = true) //调用的服务名称
 @Component
 public interface VodClient {
     //定义调用的方法路径

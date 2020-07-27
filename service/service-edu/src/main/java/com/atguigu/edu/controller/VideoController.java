@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Objects;
+
 /**
  * <p>
  * 课程视频 前端控制器
@@ -47,7 +49,8 @@ public class VideoController {
         if(StringUtils.hasText(videoSourceId)) {
             //根据视频id，远程调用实现视频删除
             R result = vodClient.removeAlyVideo(videoSourceId);
-            if(((Integer)20001).equals(result.getCode())) {
+//            if(((Integer)20001).equals(result.getCode())) {
+            if(!Objects.equals(20000,result.getCode())) {
                 throw new GuliException(20001,"删除视频失败，熔断器...");
             }
         }
