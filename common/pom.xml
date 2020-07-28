@@ -49,18 +49,22 @@
             <scope>provided</scope>
         </dependency>-->
 
-        <!-- redis -->
-        <!--<dependency>
+         <!--redis -->
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-redis</artifactId>
-        </dependency>-->
+        </dependency>
 
-        <!-- spring2.X集成redis所需common-pool2
+         <!--spring2.X集成redis所需common-pool2-->
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-pool2</artifactId>
-            <version>2.6.0</version>
-        </dependency>-->
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+        </dependency>
     </dependencies>
 
 </project>
