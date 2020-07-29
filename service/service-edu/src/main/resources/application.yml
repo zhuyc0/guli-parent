@@ -3,7 +3,10 @@ spring:
     name: service-edu
   profiles:
     active: dev
-
+#开启熔断机制
+feign.hystrix.enabled: true
+  # 设置hystrix超时时间，默认1000ms
+hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 6000
 
 ####  application-dev.yml
 
@@ -15,7 +18,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://www.java-mysql-dev.com:3306/guli?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false&serverTimezone=Asia/Shanghai&rewriteBatchedStatements=true
     username: root
-    password: 1
+    password: 123456
     hikari:
       connection-test-query: SELECT 1
       connection-timeout: 60000
