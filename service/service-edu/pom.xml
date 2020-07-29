@@ -12,6 +12,21 @@
     <artifactId>service-edu</artifactId>
 
     <dependencies>
+        <dependency>
+            <groupId>com.atguigu</groupId>
+            <artifactId>service-base</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-data-redis</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.apache.commons</groupId>
+                    <artifactId>commons-pool2</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
         <!-- mybatis plus 代码生成器 -->
         <dependency>
             <groupId>com.baomidou</groupId>

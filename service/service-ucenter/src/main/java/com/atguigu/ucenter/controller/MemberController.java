@@ -28,7 +28,7 @@ public class MemberController {
 
     //登录
     @PostMapping("login")
-    public R loginUser(String mobile, String password) {
+    public R loginUser(@RequestParam("mobile") String mobile, @RequestParam("password") String password) {
         //member对象封装手机号和密码
         //调用service方法实现登录
         //返回token值，使用jwt生成
