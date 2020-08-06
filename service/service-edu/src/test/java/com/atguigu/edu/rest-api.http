@@ -1,8 +1,0 @@
-GET http://localhost:8001/teacher/list
-Accept: */*
-Cache-Control: no-cache
-
-###
-DELETE http://localhost:8001/teacher/1189389726308478977
-Accept: */*
-Cache-Control: no-cache

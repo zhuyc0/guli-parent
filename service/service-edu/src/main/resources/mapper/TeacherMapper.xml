@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.atguigu.edu.mapper.TeacherMapper">
+<mapper namespace="com.atguigu.guli.service.edu.mapper.TeacherMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="com.atguigu.edu.entity.TeacherEntity">
-        <id column="id" property="id" />
+    <resultMap id="BaseResultMap" type="com.atguigu.guli.service.edu.entity.TeacherEntity">
+        <result column="id" property="id" />
+        <result column="gmt_create" property="gmtCreate" />
+        <result column="gmt_modified" property="gmtModified" />
         <result column="name" property="name" />
         <result column="intro" property="intro" />
         <result column="career" property="career" />
@@ -12,13 +14,14 @@
         <result column="avatar" property="avatar" />
         <result column="sort" property="sort" />
         <result column="is_deleted" property="deleted" />
-        <result column="gmt_create" property="gmtCreate" />
-        <result column="gmt_modified" property="gmtModified" />
     </resultMap>
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id, name, intro, career, level, avatar, sort, is_deleted, gmt_create, gmt_modified
+        id,
+        gmt_create,
+        gmt_modified,
+        name, intro, career, level, avatar, sort, is_deleted
     </sql>
 
 </mapper>

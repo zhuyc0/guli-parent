@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.atguigu.edu.mapper.CourseMapper">
+<mapper namespace="com.atguigu.guli.service.edu.mapper.CourseMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="com.atguigu.edu.entity.CourseEntity">
-        <id column="id" property="id" />
+    <resultMap id="BaseResultMap" type="com.atguigu.guli.service.edu.entity.CourseEntity">
+        <result column="id" property="id" />
+        <result column="gmt_create" property="gmtCreate" />
+        <result column="gmt_modified" property="gmtModified" />
         <result column="teacher_id" property="teacherId" />
         <result column="subject_id" property="subjectId" />
         <result column="subject_parent_id" property="subjectParentId" />
@@ -17,28 +19,88 @@
         <result column="version" property="version" />
         <result column="status" property="status" />
         <result column="is_deleted" property="isDeleted" />
-        <result column="gmt_create" property="gmtCreate" />
-        <result column="gmt_modified" property="gmtModified" />
     </resultMap>
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id, teacher_id, subject_id, subject_parent_id, title, price, lesson_num, cover, buy_count, view_count, version, status, is_deleted, gmt_create, gmt_modified
+        id,
+        gmt_create,
+        gmt_modified,
+        teacher_id, subject_id, subject_parent_id, title, price, lesson_num, cover, buy_count, view_count, version, status, is_deleted
     </sql>
-    <select id="publishCourseInfo" resultType="com.atguigu.edu.entity.vo.CoursePublishVo">
-        SELECT  ec.id,
-                ec.title,
-                ec.cover,
-                ec.lesson_num AS lessonNum,
-                CONVERT(ec.price, DECIMAL(8,2)) AS price,
-                es1.title AS subjectLevelOne,
-                es2.title AS subjectLevelTwo,
-                et.name AS teacherName
-        FROM edu_course ec LEFT JOIN edu_course_description ecd USING(id)
-                           LEFT JOIN edu_teacher et ON ec.teacher_id = et.id
-                           LEFT JOIN edu_subject es1 ON ec.subject_id = es1.id
-                           LEFT JOIN edu_subject es2 ON ec.subject_parent_id = es2.id
-        WHERE ec.id = #{id}
+    <select id="selectWebCourseVoById" resultType="com.atguigu.guli.service.edu.entity.vo.WebCourseVo">
+        SELECT
+            c.id,
+            c.title,
+            c.cover,
+            CONVERT(c.price, DECIMAL(8,2)) AS price,
+            c.lesson_num AS lessonNum,
+            c.buy_count AS buyCount,
+            c.view_count AS viewCount,
+            cd.description,
+
+            t.id AS teacherId,
+            t.name AS teacherName,
+            t.intro,
+            t.avatar,
+
+            s1.id AS subjectLevelOneId,
+            s1.title AS subjectLevelOne,
+            s2.id AS subjectLevelTwoId,
+            s2.title AS subjectLevelTwo
+
+        FROM
+            edu_course c
+                LEFT JOIN edu_course_description cd ON c.id = cd.id
+                LEFT JOIN edu_teacher t ON c.teacher_id = t.id
+                LEFT JOIN edu_subject s1 ON c.subject_parent_id = s1.id
+                LEFT JOIN edu_subject s2 ON c.subject_id = s2.id
+        WHERE
+            c.id = #{id}
+    </select>
+
+    <sql id="columns">
+        c.id,
+      c.title,
+      c.lesson_num AS lessonNum,
+      CONVERT(c.price, DECIMAL(8,2)) AS price,
+      c.cover,
+      c.buy_count AS buyCount,
+      c.view_count AS viewCount,
+      c.status,
+      c.gmt_create AS gmtCreate,
+
+      t.name AS teacherName,
+
+      s1.title AS subjectParentTitle,
+      s2.title AS subjectTitle
+    </sql>
+
+    <sql id="tables">
+        edu_course c
+        LEFT JOIN edu_teacher t ON c.teacher_id = t.id
+        LEFT JOIN edu_subject s1 ON c.subject_parent_id = s1.id
+        LEFT JOIN edu_subject s2 ON c.subject_id = s2.id
+    </sql>
+
+    <select id="selectPageByCourseQueryVo" resultType="com.atguigu.guli.service.edu.entity.vo.CourseVo">
+        SELECT <include refid="columns" />
+        FROM <include refid="tables" />
+        ${ew.customSqlSegment}
+    </select>
+    <select id="selectCoursePublishVoById" resultType="com.atguigu.guli.service.edu.entity.vo.CoursePublishVo">
+        SELECT
+        c.id,
+        c.title,
+        c.cover,
+        c.lesson_num AS lessonNum,
+        s1.title AS subjectParentTitle,
+        s2.title AS subjectTitle,
+        t.name AS teacherName,
+        CONVERT(c.price, DECIMAL(8,2)) AS price
+
+        FROM <include refid="tables" />
+        WHERE c.id = #{id}
     </select>
 
 </mapper>

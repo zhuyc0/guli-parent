@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.atguigu.guli.service.cms.mapper.AdMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.atguigu.guli.service.cms.entity.AdEntity">
+        <result column="id" property="id" />
+        <result column="gmt_create" property="gmtCreate" />
+        <result column="gmt_modified" property="gmtModified" />
+        <result column="title" property="title" />
+        <result column="type_id" property="typeId" />
+        <result column="image_url" property="imageUrl" />
+        <result column="color" property="color" />
+        <result column="link_url" property="linkUrl" />
+        <result column="sort" property="sort" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id,
+        gmt_create,
+        gmt_modified,
+        title, type_id, image_url, color, link_url, sort
+    </sql>
+    <select id="selectPageByQueryWrapper" resultType="com.atguigu.guli.service.cms.entity.vo.AdVo">
+        SELECT
+            a.id,
+            a.title,
+            a.sort,
+            t.title AS type
+        FROM cms_ad a
+                 LEFT JOIN cms_ad_type t ON a.type_id = t.id
+            ${ew.customSqlSegment}
+    </select>
+
+</mapper>

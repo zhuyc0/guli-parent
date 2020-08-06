@@ -1,65 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+    <packaging>pom</packaging>
+    <modules>
+        <module>common</module>
+        <module>service</module>
+        <module>infrastructure</module>
+    </modules>
     <groupId>com.atguigu</groupId>
     <artifactId>guli-parent</artifactId>
-    <packaging>pom</packaging>
     <version>0.0.1-SNAPSHOT</version>
-    <modules>
-        <module>service</module>
-        <module>common</module>
-    </modules>
     <name>guli-parent</name>
-    <description>在线教育-谷粒商城</description>
+    <description>谷粒学院</description>
 
     <properties>
         <java.version>11</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
-        <skipTests>true</skipTests>
-
-        <spring-boot.version>2.2.7.RELEASE</spring-boot.version>
-        <spring-cloud-alibaba.version>2.2.0.RELEASE</spring-cloud-alibaba.version>
+        <aliyun-spring-boot.version>1.0.0</aliyun-spring-boot.version>
+        <spring-boot.version>2.3.0.RELEASE</spring-boot.version>
+        <spring-cloud-alibaba.version>2.2.1.RELEASE</spring-cloud-alibaba.version>
         <spring-cloud.version>Hoxton.SR4</spring-cloud.version>
 
-        <guli.version>0.0.1-SNAPSHOT</guli.version>
-
-        <mysql.version>8.0.19</mysql.version>
-        <mybatis-plus.version>3.3.1.tmp</mybatis-plus.version>
+        <mybatis-plus.version>3.3.2</mybatis-plus.version>
         <velocity.version>2.2</velocity.version>
         <swagger.version>2.9.2</swagger.version>
-        <knife4j.version>2.0.2</knife4j.version>
-        <jodatime.version>2.10.6</jodatime.version>
-        <commons-fileupload.version>1.4</commons-fileupload.version>
+        <aliyun.oss.version>3.1.0</aliyun.oss.version>
+        <jodatime.version>2.10.1</jodatime.version>
+        <commons-fileupload.version>1.3.1</commons-fileupload.version>
         <commons-io.version>2.6</commons-io.version>
-        <httpclient.version>4.5.12</httpclient.version>
-        <gson.version>2.8.6</gson.version>
-        <jwt.version>0.9.1</jwt.version>
-        <aliyun-java-sdk-core.version>4.5.1</aliyun-java-sdk-core.version>
-        <aliyun-sdk-oss.version>3.9.1</aliyun-sdk-oss.version>
-        <aliyun-java-sdk-vod.version>2.15.8</aliyun-java-sdk-vod.version>
-        <aliyun-java-vod-upload.version>1.4.11</aliyun-java-vod-upload.version>
-        <aliyun-sdk-vod-upload.version>1.4.11</aliyun-sdk-vod-upload.version>
+        <commons-lang.version>3.9</commons-lang.version>
+        <httpclient.version>4.5.1</httpclient.version>
+        <jwt.version>0.7.0</jwt.version>
+        <aliyun-java-sdk-core.version>4.3.3</aliyun-java-sdk-core.version>
+        <aliyun-java-sdk-vod.version>2.15.2</aliyun-java-sdk-vod.version>
+        <aliyun-java-vod-upload.version>1.4.12</aliyun-java-vod-upload.version>
         <fastjson.version>1.2.72</fastjson.version>
-        <json.version>20190722</json.version>
+        <gson.version>2.8.2</gson.version>
+        <json.version>20170516</json.version>
         <commons-dbutils.version>1.7</commons-dbutils.version>
-        <canal.client.version>1.1.4</canal.client.version>
+        <canal.client.version>1.1.0</canal.client.version>
+        <docker.image.prefix>zx</docker.image.prefix>
+        <alibaba.easyexcel.version>2.1.1</alibaba.easyexcel.version>
+        <apache.xmlbeans.version>3.1.0</apache.xmlbeans.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
-            <!-- spring boot -->
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-dependencies</artifactId>
-                <version>${spring-boot.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-            <!-- spring cloud -->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
@@ -67,7 +55,6 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-            <!-- spring cloud alibaba -->
             <dependency>
                 <groupId>com.alibaba.cloud</groupId>
                 <artifactId>spring-cloud-alibaba-dependencies</artifactId>
@@ -75,6 +62,21 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>aliyun-spring-boot-dependencies</artifactId>
+                <version>${aliyun-spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
             <!--mybatis-plus 持久层-->
             <dependency>
                 <groupId>com.baomidou</groupId>
@@ -86,12 +88,14 @@
                 <artifactId>mybatis-plus-generator</artifactId>
                 <version>${mybatis-plus.version}</version>
             </dependency>
+
             <!-- velocity 模板引擎, Mybatis Plus 代码生成器需要 -->
             <dependency>
                 <groupId>org.apache.velocity</groupId>
                 <artifactId>velocity-engine-core</artifactId>
                 <version>${velocity.version}</version>
             </dependency>
+
             <!--swagger-->
             <dependency>
                 <groupId>io.springfox</groupId>
@@ -104,13 +108,14 @@
                 <artifactId>springfox-swagger-ui</artifactId>
                 <version>${swagger.version}</version>
             </dependency>
-            <!-- 第三方swagger ui -->
+
+            <!--aliyunOSS-->
             <dependency>
-                <groupId>com.github.xiaoymin</groupId>
-                <artifactId>knife4j-micro-spring-boot-starter</artifactId>
-                <!--在引用时请在maven中央仓库搜索最新版本号-->
-                <version>${knife4j.version}</version>
+                <groupId>com.aliyun.oss</groupId>
+                <artifactId>aliyun-sdk-oss</artifactId>
+                <version>${aliyun.oss.version}</version>
             </dependency>
+
             <!--日期时间工具-->
             <dependency>
                 <groupId>joda-time</groupId>
@@ -124,43 +129,41 @@
                 <artifactId>commons-fileupload</artifactId>
                 <version>${commons-fileupload.version}</version>
             </dependency>
+
             <!--commons-io-->
             <dependency>
                 <groupId>commons-io</groupId>
                 <artifactId>commons-io</artifactId>
                 <version>${commons-io.version}</version>
             </dependency>
+
+            <!--commons-lang3-->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${commons-lang.version}</version>
+            </dependency>
+
             <!--httpclient-->
             <dependency>
                 <groupId>org.apache.httpcomponents</groupId>
                 <artifactId>httpclient</artifactId>
                 <version>${httpclient.version}</version>
             </dependency>
-            <!-- gson -->
-            <dependency>
-                <groupId>com.google.code.gson</groupId>
-                <artifactId>gson</artifactId>
-                <version>${gson.version}</version>
-            </dependency>
+
             <!-- JWT -->
             <dependency>
                 <groupId>io.jsonwebtoken</groupId>
                 <artifactId>jjwt</artifactId>
                 <version>${jwt.version}</version>
             </dependency>
+
             <!--aliyun-->
             <dependency>
                 <groupId>com.aliyun</groupId>
                 <artifactId>aliyun-java-sdk-core</artifactId>
                 <version>${aliyun-java-sdk-core.version}</version>
             </dependency>
-            <!-- aliyun edu -->
-            <dependency>
-                <groupId>com.aliyun.oss</groupId>
-                <artifactId>aliyun-sdk-oss</artifactId>
-                <version>${aliyun-sdk-oss.version}</version>
-            </dependency>
-            <!-- aliyun 视频点播 -->
             <dependency>
                 <groupId>com.aliyun</groupId>
                 <artifactId>aliyun-java-sdk-vod</artifactId>
@@ -171,35 +174,66 @@
                 <artifactId>aliyun-java-vod-upload</artifactId>
                 <version>${aliyun-java-vod-upload.version}</version>
             </dependency>
-            <dependency>
-                <groupId>com.aliyun</groupId>
-                <artifactId>aliyun-sdk-vod-upload</artifactId>
-                <version>${aliyun-sdk-vod-upload.version}</version>
-            </dependency>
-            <!-- fastjson -->
+
+            <!--json-->
             <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>fastjson</artifactId>
                 <version>${fastjson.version}</version>
             </dependency>
-            <!-- json -->
             <dependency>
                 <groupId>org.json</groupId>
                 <artifactId>json</artifactId>
                 <version>${json.version}</version>
             </dependency>
-            <!-- db util -->
+            <dependency>
+                <groupId>com.google.code.gson</groupId>
+                <artifactId>gson</artifactId>
+                <version>${gson.version}</version>
+            </dependency>
+
             <dependency>
                 <groupId>commons-dbutils</groupId>
                 <artifactId>commons-dbutils</artifactId>
                 <version>${commons-dbutils.version}</version>
             </dependency>
-            <!-- alibaba canal -->
+
             <dependency>
                 <groupId>com.alibaba.otter</groupId>
                 <artifactId>canal.client</artifactId>
                 <version>${canal.client.version}</version>
             </dependency>
+
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>easyexcel</artifactId>
+                <version>${alibaba.easyexcel.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.xmlbeans</groupId>
+                <artifactId>xmlbeans</artifactId>
+                <version>${apache.xmlbeans.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>11</source>
+                    <target>11</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
 </project>
