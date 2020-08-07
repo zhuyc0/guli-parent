@@ -5,18 +5,15 @@ import com.atguigu.guli.common.base.result.R;
 import com.atguigu.guli.common.base.result.ResultCodeEnum;
 import com.atguigu.guli.common.base.util.ExceptionUtils;
 import com.atguigu.guli.service.base.exce.GuliException;
-import com.atguigu.guli.service.edu.entity.vo.SubjectVo;
 import com.atguigu.guli.service.edu.service.SubjectService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.InputStream;
-import java.util.List;
 
 /**
  * <p>
@@ -26,7 +23,6 @@ import java.util.List;
  * @author zhuyc
  * @since 2020-07-31
  */
-@CrossOrigin
 @Api(tags = "课程分类管理")
 @RestController
 @RequestMapping("/admin/edu/subject")

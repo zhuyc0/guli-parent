@@ -23,7 +23,6 @@ import java.util.List;
  * @date 2020年07月31日
  */
 @Api(tags = "阿里云视频点播")
-@CrossOrigin
 @RestController
 @RequestMapping("/admin/vod/media")
 @Slf4j

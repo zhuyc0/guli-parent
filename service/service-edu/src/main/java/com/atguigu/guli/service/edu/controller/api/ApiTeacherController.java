@@ -18,7 +18,6 @@ import java.util.Map;
  * @version 1.0
  * @date 2020年07月31日
  */
-@CrossOrigin
 @Api(tags = "讲师")
 @RestController
 @RequestMapping("/api/edu/teacher")

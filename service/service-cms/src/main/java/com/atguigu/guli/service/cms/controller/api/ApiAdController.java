@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.*;
  * @version 1.0
  * @date 2020年08月03日
  */
-@CrossOrigin
 @Api(tags = "广告推荐")
 @RestController
 @RequestMapping("/api/cms/ad")

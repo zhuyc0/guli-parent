@@ -13,6 +13,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
@@ -58,6 +59,7 @@ public class AdServiceImpl extends ServiceImpl<AdMapper, AdEntity> implements Ad
         throw new GuliException(ResultCodeEnum.FILE_DELETE_ERROR);
     }
 
+    @Cacheable(value = "index", key = "'selectByAdTypeId'")
     @Override
     public R selectByAdTypeId(String adTypeId) {
         LambdaQueryWrapper<AdEntity> queryWrapper = new LambdaQueryWrapper<>();

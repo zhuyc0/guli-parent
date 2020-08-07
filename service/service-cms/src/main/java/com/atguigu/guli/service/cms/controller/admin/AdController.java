@@ -20,7 +20,6 @@ import org.springframework.web.bind.annotation.*;
  * @author zhuyc
  * @since 2020-08-03
  */
-@CrossOrigin
 @Api(tags = "广告推荐管理")
 @RestController
 @RequestMapping("/admin/cms/ad")

@@ -20,7 +20,6 @@ import java.util.List;
  * @version 1.0
  * @date 2020年07月31日
  */
-@CrossOrigin
 @Api(tags = "首页")
 @RestController
 @RequestMapping("/api/edu/index")

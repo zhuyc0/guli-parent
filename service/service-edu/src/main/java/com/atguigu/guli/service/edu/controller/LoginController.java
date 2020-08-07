@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.*;
  * @version 1.0
  * @date 2020年08月06日
  */
-@CrossOrigin
 @RestController
 @RequestMapping("/user")
 public class LoginController {

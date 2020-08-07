@@ -1,7 +1,6 @@
 package com.atguigu.guli.service.edu.controller.api;
 
 import com.atguigu.guli.common.base.result.R;
-import com.atguigu.guli.service.edu.entity.CourseEntity;
 import com.atguigu.guli.service.edu.entity.form.WebCourseQueryForm;
 import com.atguigu.guli.service.edu.entity.vo.ChapterVo;
 import com.atguigu.guli.service.edu.entity.vo.WebCourseVo;
@@ -10,9 +9,11 @@ import com.atguigu.guli.service.edu.service.CourseService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
@@ -21,7 +22,6 @@ import java.util.List;
  * @version 1.0
  * @date 2020年07月31日
  */
-@CrossOrigin
 @Api(tags="课程")
 @RestController
 @RequestMapping("/api/edu/course")

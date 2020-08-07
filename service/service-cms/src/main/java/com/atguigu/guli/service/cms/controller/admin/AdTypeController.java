@@ -20,7 +20,6 @@ import java.util.List;
  * @author zhuyc
  * @since 2020-08-03
  */
-@CrossOrigin
 @Api(tags = "推荐位管理")
 @RestController
 @RequestMapping("/admin/cms/ad-type")

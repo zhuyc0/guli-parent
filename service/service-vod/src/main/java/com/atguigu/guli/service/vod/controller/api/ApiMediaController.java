@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.*;
  * @date 2020年07月31日
  */
 @Api(tags = "阿里云视频点播")
-@CrossOrigin //跨域
 @RestController
 @RequestMapping("/api/vod/media")
 @Slf4j
