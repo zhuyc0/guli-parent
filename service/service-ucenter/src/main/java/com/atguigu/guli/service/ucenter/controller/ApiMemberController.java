@@ -27,7 +27,6 @@ import javax.servlet.http.HttpServletRequest;
  * @since 2020-08-03
  */
 @Api(tags = "会员管理")
-@CrossOrigin
 @RestController
 @RequestMapping("/api/ucenter/member")
 @Slf4j

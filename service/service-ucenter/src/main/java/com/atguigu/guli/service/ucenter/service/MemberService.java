@@ -19,4 +19,6 @@ public interface MemberService extends IService<MemberEntity> {
     void register(RegisterVo registerVo);
 
     R login(LoginVo loginVo);
+
+    MemberEntity getByOpenid(String openid);
 }

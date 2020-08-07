@@ -76,19 +76,19 @@ public class MemberServiceImpl extends ServiceImpl<MemberMapper, MemberEntity> i
         LambdaQueryWrapper<MemberEntity> queryWrapper = new LambdaQueryWrapper<>();
         queryWrapper.eq(MemberEntity::getMobile, mobile);
         MemberEntity member = baseMapper.selectOne(queryWrapper);
-        if(member == null){
+        if (member == null) {
             throw new GuliException(ResultCodeEnum.LOGIN_MOBILE_ERROR);
         }
 
 
         String digest = DigestUtils.md5DigestAsHex(password.getBytes(StandardCharsets.UTF_8));
         //校验密码是否正确
-        if(!Objects.equals(digest, member.getPassword())){
+        if (!Objects.equals(digest, member.getPassword())) {
             throw new GuliException(ResultCodeEnum.LOGIN_PASSWORD_ERROR);
         }
 
         //校验用户是否被禁用
-        if(member.getDisabled()){
+        if (member.getDisabled()) {
             throw new GuliException(ResultCodeEnum.LOGIN_DISABLED_ERROR);
         }
 
@@ -98,7 +98,14 @@ public class MemberServiceImpl extends ServiceImpl<MemberMapper, MemberEntity> i
         info.setNickname(member.getNickname());
         info.setAvatar(member.getAvatar());
 
-        String  jwtToken = JwtUtils.getJwtToken(info);
+        String jwtToken = JwtUtils.getJwtToken(info);
         return R.ok().data("token", jwtToken).message("登录成功");
+    }
+
+    @Override
+    public MemberEntity getByOpenid(String openid) {
+        LambdaQueryWrapper<MemberEntity> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.eq(MemberEntity::getOpenid, openid);
+        return baseMapper.selectOne(queryWrapper);
     }
 }
