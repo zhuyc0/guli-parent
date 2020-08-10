@@ -1,6 +1,7 @@
 package com.atguigu.guli.service.edu.service.impl;
 
 import com.atguigu.guli.common.base.result.R;
+import com.atguigu.guli.service.base.dto.CourseDto;
 import com.atguigu.guli.service.edu.entity.*;
 import com.atguigu.guli.service.edu.entity.form.CourseInfoForm;
 import com.atguigu.guli.service.edu.entity.form.CourseQueryForm;
@@ -248,5 +249,10 @@ public class CourseServiceImpl extends ServiceImpl<CourseMapper, CourseEntity> i
         course.setId(id);
         course.setStatus(CourseEntity.COURSE_NORMAL);
         this.updateById(course);
+    }
+
+    @Override
+    public CourseDto getCourseDtoById(String courseId) {
+        return baseMapper.selectCourseDtoById(courseId);
     }
 }

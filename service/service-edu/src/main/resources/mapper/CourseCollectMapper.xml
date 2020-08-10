@@ -19,5 +19,21 @@
         gmt_modified,
         course_id, member_id, is_deleted
     </sql>
+    <select id="selectPageByMemberId" resultType="com.atguigu.guli.service.edu.entity.vo.CourseCollectVo">
+        select
+            cl.id,
+            cl.gmt_create as gmtCreate,
+            c.id as courseId,
+            c.title,
+            c.cover,
+            CONVERT(c.price, DECIMAL(8,2)) AS price,
+            c.lesson_num as lessonNum,
+            t.name as teacherName
+        from edu_course_collect cl
+                 left join edu_course c on c.id = cl.course_id
+                 left join edu_teacher t on t.id = c.teacher_id
+        where member_id = #{memberId}
+        order by cl.gmt_create desc
+    </select>
 
 </mapper>

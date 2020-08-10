@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.atguigu.guli.service.trade.mapper.PayLogMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.atguigu.guli.service.trade.entity.PayLogEntity">
+        <result column="id" property="id" />
+        <result column="gmt_create" property="gmtCreate" />
+        <result column="gmt_modified" property="gmtModified" />
+        <result column="order_no" property="orderNo" />
+        <result column="pay_time" property="payTime" />
+        <result column="total_fee" property="totalFee" />
+        <result column="transaction_id" property="transactionId" />
+        <result column="trade_state" property="tradeState" />
+        <result column="pay_type" property="payType" />
+        <result column="attr" property="attr" />
+        <result column="is_deleted" property="deleted" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id,
+        gmt_create,
+        gmt_modified,
+        order_no, pay_time, total_fee, transaction_id, trade_state, pay_type, attr, is_deleted
+    </sql>
+
+</mapper>

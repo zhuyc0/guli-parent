@@ -4,6 +4,7 @@ import com.atguigu.guli.common.base.result.R;
 import com.atguigu.guli.common.base.result.ResultCodeEnum;
 import com.atguigu.guli.common.base.util.JwtInfo;
 import com.atguigu.guli.common.base.util.JwtUtils;
+import com.atguigu.guli.service.base.dto.MemberDto;
 import com.atguigu.guli.service.base.exce.GuliException;
 import com.atguigu.guli.service.ucenter.entity.MemberEntity;
 import com.atguigu.guli.service.ucenter.entity.vo.LoginVo;
@@ -12,6 +13,7 @@ import com.atguigu.guli.service.ucenter.mapper.MemberMapper;
 import com.atguigu.guli.service.ucenter.service.MemberService;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
@@ -107,5 +109,13 @@ public class MemberServiceImpl extends ServiceImpl<MemberMapper, MemberEntity> i
         LambdaQueryWrapper<MemberEntity> queryWrapper = new LambdaQueryWrapper<>();
         queryWrapper.eq(MemberEntity::getOpenid, openid);
         return baseMapper.selectOne(queryWrapper);
+    }
+
+    @Override
+    public MemberDto getMemberDtoByMemberId(String memberId) {
+        MemberEntity member = baseMapper.selectById(memberId);
+        MemberDto memberDto = new MemberDto();
+        BeanUtils.copyProperties(member, memberDto);
+        return memberDto;
     }
 }

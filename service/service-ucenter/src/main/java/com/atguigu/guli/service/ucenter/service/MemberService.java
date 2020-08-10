@@ -1,6 +1,7 @@
 package com.atguigu.guli.service.ucenter.service;
 
 import com.atguigu.guli.common.base.result.R;
+import com.atguigu.guli.service.base.dto.MemberDto;
 import com.atguigu.guli.service.ucenter.entity.MemberEntity;
 import com.atguigu.guli.service.ucenter.entity.vo.LoginVo;
 import com.atguigu.guli.service.ucenter.entity.vo.RegisterVo;
@@ -21,4 +22,6 @@ public interface MemberService extends IService<MemberEntity> {
     R login(LoginVo loginVo);
 
     MemberEntity getByOpenid(String openid);
+
+    MemberDto getMemberDtoByMemberId(String memberId);
 }

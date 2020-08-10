@@ -1,5 +1,6 @@
 package com.atguigu.guli.service.edu.mapper;
 
+import com.atguigu.guli.service.base.dto.CourseDto;
 import com.atguigu.guli.service.edu.entity.CourseEntity;
 import com.atguigu.guli.service.edu.entity.vo.CoursePublishVo;
 import com.atguigu.guli.service.edu.entity.vo.CourseVo;
@@ -26,4 +27,6 @@ public interface CourseMapper extends BaseMapper<CourseEntity> {
     List<CourseVo> selectPageByCourseQueryVo(Page<CourseVo> pageParam, @Param(Constants.WRAPPER) QueryWrapper<CourseVo> queryWrapper);
 
     CoursePublishVo selectCoursePublishVoById(String id);
+
+    CourseDto selectCourseDtoById(String courseId);
 }

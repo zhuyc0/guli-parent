@@ -1,6 +1,7 @@
 package com.atguigu.guli.service.edu.service;
 
 import com.atguigu.guli.common.base.result.R;
+import com.atguigu.guli.service.base.dto.CourseDto;
 import com.atguigu.guli.service.edu.entity.CourseEntity;
 import com.atguigu.guli.service.edu.entity.form.CourseInfoForm;
 import com.atguigu.guli.service.edu.entity.form.CourseQueryForm;
@@ -41,4 +42,6 @@ public interface CourseService extends IService<CourseEntity> {
     R getCoursePublishVoById(String id);
 
     void publishCourseById(String id);
+
+    CourseDto getCourseDtoById(String courseId);
 }
