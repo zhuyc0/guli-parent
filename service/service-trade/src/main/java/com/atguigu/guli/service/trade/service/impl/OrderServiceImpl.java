@@ -157,4 +157,12 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, OrderEntity> impl
         eduCourseService.updateBuyCountById(order.getCourseId());
 
     }
+
+    @Override
+    public boolean queryPayStatus(String orderNo) {
+        LambdaQueryWrapper<OrderEntity> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.eq(OrderEntity::getOrderNo, orderNo);
+        OrderEntity order = baseMapper.selectOne(queryWrapper);
+        return order.getStatus() == 1;
+    }
 }

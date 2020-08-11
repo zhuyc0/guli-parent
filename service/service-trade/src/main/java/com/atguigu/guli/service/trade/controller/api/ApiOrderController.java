@@ -1,6 +1,7 @@
 package com.atguigu.guli.service.trade.controller.api;
 
 import com.atguigu.guli.common.base.result.R;
+import com.atguigu.guli.common.base.result.ResultCodeEnum;
 import com.atguigu.guli.common.base.util.JwtInfo;
 import com.atguigu.guli.common.base.util.JwtUtils;
 import com.atguigu.guli.service.trade.entity.OrderEntity;
@@ -66,5 +67,16 @@ public class ApiOrderController {
         JwtInfo jwtInfo = JwtUtils.getMemberIdByJwtToken(request);
         orderService.removeOrder(orderId, jwtInfo.getId());
         return R.error().message("数据不存在");
+    }
+
+    @GetMapping("/query-pay-status/{orderNo}")
+    public R queryPayStatus(@PathVariable String orderNo) {
+        boolean result = orderService.queryPayStatus(orderNo);
+        // 支付成功
+        if (result) {
+            return R.ok().message("支付成功");
+        }
+        // 支付中
+        return R.setResult(ResultCodeEnum.PAY_RUN);
     }
 }
