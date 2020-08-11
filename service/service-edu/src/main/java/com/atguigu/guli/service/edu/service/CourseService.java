@@ -44,4 +44,6 @@ public interface CourseService extends IService<CourseEntity> {
     void publishCourseById(String id);
 
     CourseDto getCourseDtoById(String courseId);
+
+    void updateBuyCountById(String id);
 }

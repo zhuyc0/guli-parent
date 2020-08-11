@@ -24,4 +24,6 @@ public interface MemberService extends IService<MemberEntity> {
     MemberEntity getByOpenid(String openid);
 
     MemberDto getMemberDtoByMemberId(String memberId);
+
+    Integer countRegisterNum(String day);
 }

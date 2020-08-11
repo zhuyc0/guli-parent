@@ -255,4 +255,11 @@ public class CourseServiceImpl extends ServiceImpl<CourseMapper, CourseEntity> i
     public CourseDto getCourseDtoById(String courseId) {
         return baseMapper.selectCourseDtoById(courseId);
     }
+
+    @Override
+    public void updateBuyCountById(String id) {
+        CourseEntity course = baseMapper.selectById(id);
+        course.setBuyCount(course.getBuyCount() + 1);
+        this.updateById(course);
+    }
 }

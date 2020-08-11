@@ -118,4 +118,9 @@ public class MemberServiceImpl extends ServiceImpl<MemberMapper, MemberEntity> i
         BeanUtils.copyProperties(member, memberDto);
         return memberDto;
     }
+
+    @Override
+    public Integer countRegisterNum(String day) {
+        return baseMapper.selectRegisterNumByDay(day);
+    }
 }

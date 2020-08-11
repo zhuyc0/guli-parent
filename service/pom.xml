@@ -19,6 +19,7 @@
         <module>service-cms</module>
         <module>service-ucenter</module>
         <module>service-trade</module>
+        <module>service-statistics</module>
     </modules>
 
     <dependencies>

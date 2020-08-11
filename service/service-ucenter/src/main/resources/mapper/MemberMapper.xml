@@ -26,5 +26,10 @@
         gmt_modified,
         openid, mobile, password, nickname, sex, age, avatar, sign, is_disabled, is_deleted
     </sql>
+    <select id="selectRegisterNumByDay" resultType="java.lang.Integer">
+        SELECT COUNT(1)
+        FROM ucenter_member
+        WHERE DATE(gmt_create) = #{day}
+    </select>
 
 </mapper>
