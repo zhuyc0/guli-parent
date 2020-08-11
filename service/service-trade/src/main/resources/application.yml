@@ -19,7 +19,7 @@ spring:
   #spring:
   redis:
     host: www.redis-dev.com
-    password: 123321cc..
+    password: 1..
     database: 7
     port: 6381
   datasource:
@@ -58,4 +58,4 @@ weixin:
     #商户key
     partnerKey: 1
     #回调地址
-    notifyUrl: http://imhelen.free.idcfengye.com/api/trade/weixin-pay/callback/notify
+    notifyUrl: http://1.free.idcfengye.com/api/trade/weixin-pay/callback/notify
