@@ -19,7 +19,7 @@ spring:
   #spring:
   redis:
     host: www.redis-dev.com
-    password: 1..
+    password: 1
     database: 7
     port: 6381
   datasource:
@@ -52,10 +52,10 @@ feign:
 weixin:
   pay:
     #关联的公众号appid
-    appId: 1
+    appId: wxf913bfa3a2c7eeeb
     #商户号
-    partner: 1
+    partner: 1543338551
     #商户key
-    partnerKey: 1
+    partnerKey: atguigu3b0kn9g5v426MKfHQH7X8rKwb
     #回调地址
-    notifyUrl: http://1.free.idcfengye.com/api/trade/weixin-pay/callback/notify
+    notifyUrl: http://eachan.free.idcfengye.com/api/trade/weixin-pay/callback/notify

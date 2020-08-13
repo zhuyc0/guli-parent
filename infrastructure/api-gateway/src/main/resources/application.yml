@@ -49,3 +49,7 @@ spring:
           uri: lb://service-statistics
           predicates:
             - Path=/*/statistics/**
+        - id: service-acl
+          uri: lb://service-acl
+          predicates:
+            - Path=/*/acl/**

@@ -11,7 +11,7 @@ spring:
     password: 1
   redis:
     host: www.redis-dev.com
-    password: 2
+    password: 1
     database: 7
     port: 6381
   mvc:

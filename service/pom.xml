@@ -20,6 +20,7 @@
         <module>service-ucenter</module>
         <module>service-trade</module>
         <module>service-statistics</module>
+        <module>service-acl</module>
     </modules>
 
     <dependencies>

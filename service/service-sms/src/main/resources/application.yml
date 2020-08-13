@@ -22,11 +22,11 @@ spring:
 # 可以访问如下地址查看: https://usercenter.console.aliyun.com/#/manage/ak
 alibaba:
   cloud:
-    access-key: 2
-    secret-key: 3
+    access-key: 1
+    secret-key: 1
 #阿里云短信
 aliyun:
   sms:
     regionId: cn-hangzhou
-    templateCode: 4
-    signName: 5
+    templateCode: SMS_1
+    signName: 1

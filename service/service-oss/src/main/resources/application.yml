@@ -17,10 +17,10 @@ spring:
 alibaba:
   cloud:
     access-key: 1
-    secret-key: 2
+    secret-key: 1
     # oss控制台: https://oss.console.aliyun.com
     # oss云存储的EndPoint（地域节点）
     oss:
       endpoint: oss-cn-beijing.aliyuncs.com
-      bucketName: 3
+      bucketName: 1
 
